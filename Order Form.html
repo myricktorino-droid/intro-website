@@ -1,33 +1,122 @@
-<p>
+<!-- Bread Menu Table -->
 <table border="1">
-	<tr>
-		<th>Bread Type</th>
-		<th>Price</th>
-		
-	</tr>
-	<tr>
-		<td> Bread Sticks</td>
-		<td>$2.59</td>
-	</tr>
-<tr>
-		<td> Bread cake</td>
-		<td>$3.59</td>
-	</tr>
-<tr>
-		<td> Spanish Bread</td>
-		<td>$5.59</td>
-	</tr>
-
-
+  <tr><th>Bread Type</th><th>Price</th></tr>
+  <tr><td>Bread Sticks</td><td>$2.59</td></tr>
+  <tr><td>Bread Cake</td><td>$3.59</td></tr>
+  <tr><td>Spanish Bread</td><td>$5.59</td></tr>
 </table>
-</p>
+
+<!-- Order Form -->
 <form>
-	<label>Bread Type</label>
-	<input name="Bread Type"><br>
-	<label>Quantity</label>
-	<input name="Quantity"><br>
-	<label>Delivery Date</label>
-	<input name="Date" type="date"><br>
-	<button>Order</button>
+  <label for="breadType">Bread Type</label>
+  <input name="Bread Type" id="breadType" type="text"><br>
+
+  <label for="quantity">Quantity</label>
+  <input name="Quantity" id="quantity" type="number" min="1"><br>
+
+  <label for="date">Delivery Date</label>
+  <input name="Date" id="date" type="date"><br>
+
+  <button type="submit">Order</button>
 </form>
 
+
+<Hr>
+
+	<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  h2 {
+    text-align: center;
+    color: #5D3A00;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f4e2d8;
+  }
+
+  form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #5D3A00;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #7a4c1c;
+  }
+
+  #confirmation {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e6ffe6;
+    border: 1px solid #b3ffb3;
+    display: none;
+  }
+</style>
+
+<h2>La Stanza Torino Bread Menu</h2>
+
+<table>
+  <tr><th>Bread Type</th><th>Price</th></tr>
+  <tr><td>Bread Sticks</td><td>$2.59</td></tr>
+  <tr><td>Bread Cake</td><td>$3.59</td></tr>
+  <tr><td>Spanish Bread</td><td>$5.59</td></tr>
+</table>
+
+<form onsubmit="event.preventDefault(); showConfirmation();">
+  <label for="breadType">Bread Type</label>
+  <input type="text" id="breadType" name="Bread Type" required>
+
+  <label for="quantity">Quantity</label>
+  <input type="number" id="quantity" name="Quantity" min="1" required>
+
+  <label for="date">Delivery Date</label>
+  <input type="date" id="date" name="Date" required>
+
+  <button type="submit">Order</button>
+</form>
+
+<div id="confirmation">
+  ✅ Your order has been received! We'll prepare your fresh bread for delivery on the selected date.
+</div>
+
+<script>
+  function showConfirmation() {
+    document.getElementById('confirmation').style.display = 'block';
+  }
+</script>
